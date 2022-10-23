@@ -107,6 +107,7 @@ public class ProductController {
             responseData.setPayload(null);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseData);
         }
+        productService.remove(id);
         responseData.setStatus(true);
         responseData.setPayload(null);
         responseData.getMessages().add("Data Berhasil dihapus");
