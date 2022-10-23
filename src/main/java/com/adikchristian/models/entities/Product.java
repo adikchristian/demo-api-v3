@@ -69,5 +69,8 @@ public class Product implements Serializable {
         this.price = price;
     }
 
+    public void add(String defaultMessage) {
+    }
+
     
 }
