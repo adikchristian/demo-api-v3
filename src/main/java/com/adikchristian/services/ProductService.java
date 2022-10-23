@@ -21,13 +21,23 @@ public class ProductService {
         return productRepo.save(product);
     }
 
-    public Product findById(Long id){
+    public boolean checkAvailableProductById(Long id){
         Optional<Product> product = productRepo.findById(id);
 
         if(!product.isPresent()){
+            return false;
+        }
+
+        return true;
+    }
+
+    public Product findById(Long id){
+        boolean product = checkAvailableProductById(id);
+
+        if(!product){
             return null;
         }
-        return product.get();
+        return productRepo.findById(id).get();
     }
 
     public Iterable<Product> findAll(){
